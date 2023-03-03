@@ -1,6 +1,6 @@
 
 1. Web scraper 
-2. Check language => English or Spanish 
+2. Check language => English or Spanish  <==== create api for that
 3. If there is any English => skip
 4. If Spanish is only one word => create a sentence
 5. Translate Spanish to English

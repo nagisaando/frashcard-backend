@@ -1,5 +1,6 @@
 const express = require('express')
 require('dotenv').config();
+const cors = require('cors');
 const langdetect = require('langdetect');
 // const { Configuration, OpenAIApi } = require("openai");
 
@@ -10,7 +11,7 @@ const langdetect = require('langdetect');
 
 const app = express()
 app.use(express.json())
-
+app.use(cors());
 // app.post('translate-to-english', (req, res) => {
 
 //     const animal = req.body.animal || '';
@@ -46,12 +47,21 @@ app.use(express.json())
 //     }
 // })
 
+app.post('/detect-language', (req, res) => {
+    res.send(langdetect.detect(req.body.text))
+})
 
+
+
+app.get('/get', (req, res) => {
+  
+    res.send('Do you see it?')
+})
 
 const port = process.env.PORT || 5000
 
 app.listen(port, () => {
     console.log('server started')
-    console.log(langdetect.detect('Hola, a que hora es'));
+    console.log();
 })
 
